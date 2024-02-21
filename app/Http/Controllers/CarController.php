@@ -37,6 +37,8 @@ class CarController extends Controller
         $car->brand = $request->input('brand');
         $car->model = $request->input('model');
         $car->year = $request->input('year');
+        $car->color = $request->input('color');
+        $car->fuel_type = $request->input('fuel_type');
         $car->price = $request->input('price');
 
         $photos = [];
@@ -62,10 +64,11 @@ class CarController extends Controller
     public function car_edit_store(CarRequest $request, $id)
     {
         $car = Car::findOrFail($id);
-
         $car->brand = $request->input('brand');
         $car->model = $request->input('model');
         $car->year = $request->input('year');
+        $car->color = $request->input('color');
+        $car->fuel_type = $request->input('fuel_type');
         $car->price = $request->input('price');
 
         $photos = [];
