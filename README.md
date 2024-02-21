@@ -9,7 +9,6 @@ Aby zainicjować bazę danych, wygenerować przykładowe dane i uruchomić serwe
 ```bash
 php artisan migrate               # Wykonuje migracje bazy danych
 php artisan db:seed --class=UserSeeder    # Seeduje bazę danych danymi użytkowników
-php artisan db:seed --class=CarSeeder    # Seeduje bazę danych danymi samochodów
 php artisan serve    
 ```
 
