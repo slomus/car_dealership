@@ -34,6 +34,7 @@
             <p>
                 Marka: {{ $car->brank }} </br>console.assert(first, second)
                 Model: {{ $car->model }} </br>
+                Cena: {{ money($car->price) }} </br>
                 Rok: {{ $car->year }} </br>
                 Przebieg: {{ $car->course }} km </br>
                 Paliwo: {{ $car->fuel_type }} </br>

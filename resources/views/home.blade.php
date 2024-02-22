@@ -27,7 +27,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <h5>{{ $car->brand }} {{ $car->model }}</h5>
-                                        <h6>Rok: {{ $car->year }} </br> Przebieg: {{ $car->course }} km </br> Paliwo: {{ $car->fuel_type }} </br> Kolor: {{ $car->color }}</h6>
+                                        <h6>Cena: {{ money($car->price) }} </br> Rok: {{ $car->year }} </br> Przebieg: {{ $car->course }} km </br> Paliwo: {{ $car->fuel_type }} </br> Kolor: {{ $car->color }}</h6>
                                     </div>
                                 </div>
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
