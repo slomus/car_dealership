@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 //Main page
 Route::get('/', [CarController::class, 'index'])->name('car.index');
 Route::get('/car/{id}', [CarController::class, 'spec_data'])->name('car.spec_data');
-Route::get('/about', [UserController::class, 'about'])->name('about');
+Route::post('/car/reservate/{id}', [CarController::class, 'reservate_car'])->name('car.reservate');
 
 //Auth
 Route::get('/login', [UserController::class, 'index'])->name('login.index');

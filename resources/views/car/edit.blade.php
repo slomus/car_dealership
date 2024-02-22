@@ -52,6 +52,13 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="reservation" class="form-label">Rezerwacja</label>
+            <select class="form-select" id="reservation" name="reservation">
+                <option value="0" {{ old('reservation', $car->reservation) == 0 ? 'selected' : '' }}>Nie</option>
+                <option value="1" {{ old('reservation', $car->reservation) == 1 ? 'selected' : '' }}>Tak</option>
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="photos" class="form-label">Zdjęcia</label>
             <input type="file" class="form-control @error('photos') is-invalid @enderror" id="photos" name="photos[]" multiple>
             @error('photos')
@@ -66,15 +73,17 @@
                     $photos_array = json_decode($car->photos, true);
                     $i = 0;
                 @endphp
-                @foreach($photos_array as $photo_path)
-                    <div class="col-2 mb-2" id="photo_div_{{ $i }}">
-                        <img src="{{ Storage::url($photo_path) }}" alt="Car Photo" class="img-thumbnail">
-                        <button type="button" class="btn btn-sm btn-danger mt-1" onclick="delete_photo('{{ $photo_path }}',{{ $i }})">Usuń</button>
-                    </div>
-                    @php
-                    $i++;
-                    @endphp
-                @endforeach
+                @if($photos_array)
+                    @foreach($photos_array as $photo_path)
+                        <div class="col-2 mb-2" id="photo_div_{{ $i }}">
+                            <img src="{{ Storage::url($photo_path) }}" alt="Car Photo" class="img-thumbnail">
+                            <button type="button" class="btn btn-sm btn-danger mt-1" onclick="delete_photo('{{ $photo_path }}',{{ $i }})">Usuń</button>
+                        </div>
+                        @php
+                        $i++;
+                        @endphp
+                    @endforeach
+                @endif
             </div>
         </div>
         

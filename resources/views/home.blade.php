@@ -5,7 +5,7 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
                     @foreach($cars as $car)
-                        <div class="col-mb-4">
+                        <div class="col-md-4 mb-5">
                             <div class="card h-100">
                                 @if($car->reservation)
                                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Rezerwacja</div>
@@ -27,7 +27,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <h5>{{ $car->brand }} {{ $car->model }}</h5>
-                                        <h6>Rok: {{ $car->year }} </br> Przebieg: {{ $car->course }} </br> Paliwo: {{ $car->fuel_type }} </br> Kolor: {{ $car->color }}</h6>
+                                        <h6>Rok: {{ $car->year }} </br> Przebieg: {{ $car->course }} km </br> Paliwo: {{ $car->fuel_type }} </br> Kolor: {{ $car->color }}</h6>
                                     </div>
                                 </div>
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

@@ -15,8 +15,9 @@ class CarController extends Controller
         return view('home', compact('cars'));
     }
 
-    public function spec_data(Car $car)
+    public function spec_data($id)
     {
+        $car = Car::findOrFail($id);
         return view('car.spec', compact('car'));
     }
 
@@ -70,6 +71,7 @@ class CarController extends Controller
         $car->color = $request->input('color');
         $car->fuel_type = $request->input('fuel_type');
         $car->price = $request->input('price');
+        $car->reservation = $request->input('reservation');
 
         $photos = [];
         if ($request->hasFile('photos')) {
@@ -114,5 +116,15 @@ class CarController extends Controller
         Storage::delete($photo_path);
 
         return response()->json(['message' => 'Zdjęcie zostało pomyślnie usunięte'], 200);
+    }
+    
+    public function reservate_car($id)
+    {
+        $car = Car::findOrFail($id);
+
+        $car->reservation = 1;
+        $car->save();
+
+        return response()->json(['message' => 'Pojazd został zarezerwowany'], 200);
     }
 }
